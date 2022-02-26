@@ -4,7 +4,8 @@ Real-time patch for Raspberry Pi with Preempt-rt kernel
 + It contains additional support as an option to use W5500 Ethernet network driver for users who need extra ethernet port on raspberry pi.
 + You can find out much more simplified method using pre-built kernel on the [link](https://github.com/shkwon98/RPi_PreemptRT_PreBuilt)
 
-#
+---
+
 ### HARDWARE:
 + Raspberry Pi 4
 + (Option) WIZnet W5500 Ethernet chip with SPI interface
