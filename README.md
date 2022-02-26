@@ -12,8 +12,8 @@ Real-time patch for Raspberry Pi with Preempt-rt kernel
 
 
 ### SOFTWARE:
-+ Raspbian ([buster](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip))
-+ Preempt-RT real time kernel ([4.19.y-rt](https://github.com/raspberrypi/linux/tree/rpi-4.19.y-rt))
++ Raspbian (buster) [Download](http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip)
++ Preempt-RT real time kernel (4.19.y-rt) [Download](https://github.com/raspberrypi/linux/tree/rpi-4.19.y-rt)
 
 
 ### BUILD:
