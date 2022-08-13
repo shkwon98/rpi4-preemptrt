@@ -91,7 +91,7 @@ host@ubuntu:~/rpi-kernel$ scp rt-kernel.tgz pi@<raspberry pi IP address>:/tmp
 
 <br>
 
-## D. Installing the xenomai libraries on the Raspberry pi
+## D. Installing the preempt-rt on the Raspberry pi
 
 1. Inside the raspberry pi, unpack the .tgz and copy it
 ```bash
