@@ -22,14 +22,14 @@ These steps will help you through the installation of preempt-rt on the **Raspbe
 ## A. Directory initialization
 
 1. Create directories on the host computer
-```bash
+```console
 host@ubuntu:~$ mkdir rpi-kernel
 host@ubuntu:~$ cd rpi-kernel
 host@ubuntu:~/rpi-kernel$ mkdir rt-kernel
 ```
 
 2. Start by pulling the linux repository
-```bash
+```console
 host@ubuntu:~/rpi-kernel$ git clone -b rpi-4.19.y-rt https://github.com/raspberrypi/linux.git
 host@ubuntu:~/rpi-kernel$ git clone https://github.com/raspberrypi/tools.git
 ```
@@ -39,7 +39,7 @@ host@ubuntu:~/rpi-kernel$ git clone https://github.com/raspberrypi/tools.git
 ## B. Building linux
 
 1. Environment variable setting
-```bash
+```console
 host@ubuntu:~/rpi-kernel$ export ARCH=arm
 host@ubuntu:~/rpi-kernel$ export CROSS_COMPILE=~/rpi-kernel/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-
 host@ubuntu:~/rpi-kernel$ export INSTALL_MOD_PATH=~/rpi-kernel/rt-kernel
@@ -47,14 +47,14 @@ host@ubuntu:~/rpi-kernel$ export INSTALL_DTBS_PATH=~/rpi-kernel/rt-kernel
 ```
 
 2. Setting for Raspberry pi 4
-```bash
+```console
 host@ubuntu:~/rpi-kernel$ export KERNEL=kernel7l
 host@ubuntu:~/rpi-kernel$ cd linux/
 host@ubuntu:~/rpi-kernel/linux$ make bcm2711_defconfig
 ```
 
 3. Configurate Kernel Compile options
-```bash
+```console
 host@ubuntu:~/rpi-kernel/linux$ sudo apt-get install libncurses-dev libssl-dev flex bison
 host@ubuntu:~/rpi-kernel/linux$ make menuconfig
 ```
@@ -66,7 +66,7 @@ host@ubuntu:~/rpi-kernel/linux$ make menuconfig
 ```
 
 5. Build the linux kernel (This can take some time, so get coffee or tea...)
-```bash
+```console
 host@ubuntu:~/rpi-kernel/linux$ make -j4 zImage modules dtbs
 host@ubuntu:~/rpi-kernel/linux$ make –j4 modules_install dtbs_install
 ```
@@ -76,13 +76,13 @@ host@ubuntu:~/rpi-kernel/linux$ make –j4 modules_install dtbs_install
 ## C. Installing the linux kernel on the Micro-SD card
 
 1. Create .img Kernel file
-```bash
+```console
 host@ubuntu:~/rpi-kernel/linux$ mkdir $INSTALL_MOD_PATH/boot
 host@ubuntu:~/rpi-kernel/linux$ ./scripts/mkknlimg ./arch/arm/boot/zImage $INSTALL_MOD_PATH/boot/$KERNEL.img
 ```
 
 2. Replace the Kernel to Raspberry Pi
-```bash
+```console
 host@ubuntu:~/rpi-kernel/linux$ cd $INSTALL_MOD_PATH
 host@ubuntu:~/rpi-kernel/rt-kernel$ tar czf ../rt-kernel.tgz *
 host@ubuntu:~/rpi-kernel/rt-kernel$ cd ..
@@ -94,7 +94,7 @@ host@ubuntu:~/rpi-kernel$ scp rt-kernel.tgz pi@<raspberry pi IP address>:/tmp
 ## D. Installing the preempt-rt on the Raspberry pi
 
 1. Inside the raspberry pi, unpack the .tgz and copy it
-```bash
+```console
 host@ubuntu:~$ cd /tmp
 host@ubuntu:/tmp$ tar xzf rt-kernel.tgz
 host@ubuntu:/tmp$ cd boot
@@ -108,7 +108,7 @@ host@ubuntu:/tmp$ sudo cp -d bcm* /boot/
 ```
 
 2. Edit the boot configutarion
-```bash
+```console
 host@ubuntu:/tmp$ sudo nano /boot/config.txt
 ```
 > Add in the beginning:
@@ -121,7 +121,7 @@ dtoverlay=w5500
 ```
 
 3. Reboot and check the patched kernel
-```bash
+```console
 host@ubuntu:/tmp$ sudo reboot
 host@ubuntu:~$ uname -r
 ```
