@@ -95,21 +95,21 @@ host@ubuntu:~/rpi-kernel$ scp rt-kernel.tgz pi@<raspberry pi IP address>:/tmp
 
 1. Inside the raspberry pi, unpack the .tgz and copy it
 ```console
-host@ubuntu:~$ cd /tmp
-host@ubuntu:/tmp$ tar xzf rt-kernel.tgz
-host@ubuntu:/tmp$ cd boot
-host@ubuntu:/tmp/boot$ sudo cp -rd * /boot/
-host@ubuntu:/tmp/boot$ cd ../lib
-host@ubuntu:/tmp/lib$ sudo cp -rd * /lib/
-host@ubuntu:/tmp/lib$ cd ../overlays
-host@ubuntu:/tmp/overlays$ sudo cp -d * /boot/overlays
-host@ubuntu:/tmp/overlays$ cd ..
-host@ubuntu:/tmp$ sudo cp -d bcm* /boot/
+pi@raspberrypi:~$ cd /tmp
+pi@raspberrypi:/tmp$ tar xzf rt-kernel.tgz
+pi@raspberrypi:/tmp$ cd boot
+pi@raspberrypi:/tmp/boot$ sudo cp -rd * /boot/
+pi@raspberrypi:/tmp/boot$ cd ../lib
+pi@raspberrypi:/tmp/lib$ sudo cp -rd * /lib/
+pi@raspberrypi:/tmp/lib$ cd ../overlays
+pi@raspberrypi:/tmp/overlays$ sudo cp -d * /boot/overlays
+pi@raspberrypi:/tmp/overlays$ cd ..
+pi@raspberrypi:/tmp$ sudo cp -d bcm* /boot/
 ```
 
 2. Edit the boot configutarion
 ```console
-host@ubuntu:/tmp$ sudo nano /boot/config.txt
+pi@raspberrypi:/tmp$ sudo nano /boot/config.txt
 ```
 > Add in the beginning:
 ```
@@ -122,8 +122,8 @@ dtoverlay=w5500
 
 3. Reboot and check the patched kernel
 ```console
-host@ubuntu:/tmp$ sudo reboot
-host@ubuntu:~$ uname -r
+pi@raspberrypi:/tmp$ sudo reboot
+pi@raspberrypi:~$ uname -r
 ```
 
 <br>
