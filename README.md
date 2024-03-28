@@ -129,4 +129,4 @@ pi@raspberrypi:~$ uname -r
 <br>
 
 ## BENCHMARK:
-* [Cyclictest benchmark](https://github.com/shkwon98/Cyclictest)
+* [cyclictest benchmark](https://github.com/shkwon98/cyclictest)
